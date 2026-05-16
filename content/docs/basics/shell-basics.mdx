@@ -1,0 +1,24 @@
+---
+title: "Shell Basics"
+description: "Understand shells, prompts, environment variables, and pipelines."
+section: "Basics"
+updated: "2026-05-16"
+tags: ["shell", "basics", "pipelines"]
+---
+
+# Shell basics
+
+The shell is a command interpreter. It reads input, expands it, executes commands, and manages environment state. Bash and Zsh are the most common.
+
+## Core concepts
+
+- **Prompt**: Shows context like user, host, and current directory.
+- **Environment variables**: Key-value pairs that configure behavior.
+- **Pipelines**: Chain commands using `|` to pass output into the next command.
+
+## Example
+
+```bash
+export PATH="$HOME/bin:$PATH"
+ps aux | grep -i "nginx" | head -n 5
+```

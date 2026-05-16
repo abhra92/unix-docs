@@ -1,0 +1,63 @@
+---
+title: "kill"
+description: "Send signals to processes for graceful or forced termination."
+section: "Processes"
+updated: "2026-05-16"
+tags: ["signals", "processes", "kill"]
+---
+
+# Overview
+
+`kill` sends signals to processes. It is used for graceful shutdowns, reloads, or forced termination.
+
+# Syntax
+
+```bash
+kill [options] pid...
+```
+
+# Arguments
+
+- `pid`: One or more process IDs.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-TERM` | Graceful termination (default). |
+| `-HUP` | Reload configuration if supported. |
+| `-KILL` | Force termination. |
+| `-l` | List available signals. |
+
+# Examples
+
+```bash
+kill -TERM 1234
+kill -HUP $(cat /var/run/nginx.pid)
+```
+
+# Real-world Usage
+
+Use `-TERM` before `-KILL` to allow cleanup and logs to flush.
+
+# Common Mistakes
+
+- Using `-KILL` immediately without trying graceful signals.
+- Killing the wrong PID by copying stale output.
+
+# Performance Notes
+
+Signals are immediate, but process cleanup may take time.
+
+# Security Considerations
+
+Only privileged users should send signals to system processes.
+
+# Related Commands
+
+`pkill`, `pgrep`, `systemctl`
+
+# Practice Exercises
+
+1. Send `HUP` to a daemon to reload configuration.
+2. Identify a stuck process and terminate it gracefully.

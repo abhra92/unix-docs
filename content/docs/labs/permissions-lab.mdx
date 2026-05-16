@@ -1,0 +1,24 @@
+---
+title: "Permissions Lab"
+description: "Hands-on practice with chmod, chown, and groups."
+section: "Labs"
+updated: "2026-05-16"
+tags: ["labs", "permissions", "practice"]
+---
+
+# Permissions lab
+
+## Goal
+
+Simulate a shared workspace where developers can read logs but only operators can rotate them.
+
+## Tasks
+
+1. Create `logs/` and `archive/` directories.
+2. Assign ownership to `ops` group.
+3. Grant read-only access to `devs`.
+4. Verify access with a test user.
+
+## Expected outcome
+
+`devs` can read logs but cannot delete or overwrite them.

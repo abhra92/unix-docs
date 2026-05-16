@@ -1,0 +1,64 @@
+---
+title: "chown"
+description: "Change file ownership and group assignments."
+section: "Permissions"
+updated: "2026-05-16"
+tags: ["permissions", "ownership", "security"]
+---
+
+# Overview
+
+`chown` updates the owner and group of files and directories.
+
+# Syntax
+
+```bash
+chown [options] owner[:group] file...
+```
+
+# Arguments
+
+- `owner`: New user owner.
+- `group`: Optional group assignment.
+- `file`: Targets to change.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-R` | Recurse into directories. |
+| `-v` | Verbose output. |
+| `--from` | Change only if current owner matches. |
+
+# Examples
+
+```bash
+chown ops:ops /var/log/app.log
+chown -R deploy:deploy /srv/app
+```
+
+# Real-world Usage
+
+Use `chown` during deployment to guarantee that the service user owns its runtime directories.
+
+# Common Mistakes
+
+- Running recursive changes on `/` or large mount points.
+- Changing ownership without updating group permissions.
+
+# Performance Notes
+
+Recursive `chown` on large trees is expensive. Use the smallest possible scope.
+
+# Security Considerations
+
+Limit ownership changes to trusted accounts. Avoid giving write access to service users unnecessarily.
+
+# Related Commands
+
+`chmod`, `chgrp`, `stat`
+
+# Practice Exercises
+
+1. Change the owner of `/var/www` to `deploy` and group to `www-data`.
+2. Use `--from` to update only files owned by a specific user.

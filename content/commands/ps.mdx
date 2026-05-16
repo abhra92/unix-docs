@@ -1,0 +1,63 @@
+---
+title: "ps"
+description: "Inspect running processes and resource usage."
+section: "Processes"
+updated: "2026-05-16"
+tags: ["processes", "ps", "monitoring"]
+---
+
+# Overview
+
+`ps` shows process snapshots, including CPU, memory, and owner details.
+
+# Syntax
+
+```bash
+ps [options]
+```
+
+# Arguments
+
+- None required.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `aux` | BSD-style full listing. |
+| `-e` | Select all processes. |
+| `-o` | Custom output format. |
+| `-p` | Filter by PID. |
+
+# Examples
+
+```bash
+ps aux | sort -nrk 3 | head -n 5
+ps -o pid,ppid,cmd -p 1234
+```
+
+# Real-world Usage
+
+Identify high CPU processes during an incident and capture owner details.
+
+# Common Mistakes
+
+- Assuming `ps` is real-time (it is a snapshot).
+- Forgetting to filter output, creating noise.
+
+# Performance Notes
+
+Use `ps -eo` with minimal columns for faster parsing in scripts.
+
+# Security Considerations
+
+Hide sensitive command-line arguments in process lists when possible.
+
+# Related Commands
+
+`top`, `htop`, `pgrep`
+
+# Practice Exercises
+
+1. List top five CPU-consuming processes.
+2. Show the command line for a specific PID.

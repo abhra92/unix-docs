@@ -1,0 +1,64 @@
+---
+title: "ls"
+description: "List directory contents with precise filtering and formatting."
+section: "Filesystem"
+updated: "2026-05-16"
+tags: ["filesystem", "listing", "navigation"]
+---
+
+# Overview
+
+`ls` lists directory entries. It is the first step for filesystem discovery and should be paired with filters that keep output readable.
+
+# Syntax
+
+```bash
+ls [options] [path...]
+```
+
+# Arguments
+
+- `path`: One or more files or directories to list.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-l` | Long format with permissions and metadata. |
+| `-a` | Include hidden entries. |
+| `-h` | Human-readable sizes (use with `-l`). |
+| `-t` | Sort by modification time. |
+| `-S` | Sort by size. |
+
+# Examples
+
+```bash
+ls -la /var/log
+ls -lt /etc | head -n 10
+```
+
+# Real-world Usage
+
+Use `ls -lt` when triaging logs to quickly spot the newest files.
+
+# Common Mistakes
+
+- Forgetting `-a` and missing hidden files.
+- Using `ls -l` without `-h` and misreading sizes.
+
+# Performance Notes
+
+`ls` is fast, but avoid listing huge directories over remote connections without filters.
+
+# Security Considerations
+
+Never rely on `ls` output for security decisions. Validate permissions with `stat` or `namei` when needed.
+
+# Related Commands
+
+`stat`, `find`, `tree`, `du`
+
+# Practice Exercises
+
+1. List the 10 newest files in `/var/log`.
+2. Sort `/usr/bin` by size and show the top 5.

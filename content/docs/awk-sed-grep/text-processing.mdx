@@ -1,0 +1,23 @@
+---
+title: "Text Processing"
+description: "Pattern matching and stream editing with grep, awk, and sed."
+section: "awk/sed/grep"
+updated: "2026-05-16"
+tags: ["grep", "awk", "sed", "text"]
+---
+
+# Text processing
+
+Unix text tools are built for streaming. `grep` filters, `awk` transforms, and `sed` edits.
+
+## When to use each
+
+- **grep**: Find matching lines quickly.
+- **awk**: Parse fields, calculate metrics, format output.
+- **sed**: Edit streams with substitutions or line operations.
+
+## Example pipeline
+
+```bash
+journalctl -u nginx | grep " 5" | awk '{print $1, $2, $3, $9}' | sort | uniq -c
+```

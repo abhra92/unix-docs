@@ -1,0 +1,28 @@
+---
+title: "Variables and Conditions"
+description: "Control flow, conditionals, and safe variable usage in Bash."
+section: "Shell Scripting"
+updated: "2026-05-16"
+tags: ["bash", "scripting", "variables"]
+---
+
+# Variables and conditions
+
+Shell scripts gain power from strict variable handling and predictable control flow.
+
+## Recommendations
+
+- Use `set -euo pipefail` for safer execution.
+- Quote variables unless you explicitly need word splitting.
+- Prefer `[[ ... ]]` over `[ ... ]` for conditionals.
+
+## Example
+
+```bash
+set -euo pipefail
+
+if [[ -z "${LOG_PATH:-}" ]]; then
+  echo "LOG_PATH is required" >&2
+  exit 1
+fi
+```

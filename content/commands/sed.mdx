@@ -1,0 +1,63 @@
+---
+title: "sed"
+description: "Stream editor for substitutions and line edits."
+section: "Text"
+updated: "2026-05-16"
+tags: ["sed", "text", "streams"]
+---
+
+# Overview
+
+`sed` edits streams using scripted commands, most often for substitutions.
+
+# Syntax
+
+```bash
+sed [options] 'script' file...
+```
+
+# Arguments
+
+- `script`: Editing instructions.
+- `file`: Optional input files.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-n` | Suppress automatic printing. |
+| `-e` | Add multiple scripts. |
+| `-i` | Edit files in place. |
+
+# Examples
+
+```bash
+sed 's/error/warn/g' app.log
+sed -n '10,20p' /etc/ssh/sshd_config
+```
+
+# Real-world Usage
+
+Use `sed` to normalize log output before ingestion or to patch config files during automation.
+
+# Common Mistakes
+
+- Using `-i` without backups.
+- Forgetting to escape regex characters.
+
+# Performance Notes
+
+`sed` is efficient for line-level edits. Prefer it over heavier scripting when possible.
+
+# Security Considerations
+
+Avoid editing critical configs in place without version control or backups.
+
+# Related Commands
+
+`awk`, `grep`, `perl`
+
+# Practice Exercises
+
+1. Replace all instances of `DEBUG` with `INFO` in a file.
+2. Print lines 50 to 80 of a configuration file.

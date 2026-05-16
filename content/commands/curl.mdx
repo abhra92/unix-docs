@@ -1,0 +1,64 @@
+---
+title: "curl"
+description: "Transfer data with URLs for HTTP, APIs, and debugging."
+section: "Networking"
+updated: "2026-05-16"
+tags: ["curl", "http", "networking"]
+---
+
+# Overview
+
+`curl` is the default HTTP and network client for scripts and diagnostics.
+
+# Syntax
+
+```bash
+curl [options] url
+```
+
+# Arguments
+
+- `url`: The target URL.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-I` | Fetch headers only. |
+| `-X` | Set request method. |
+| `-H` | Add headers. |
+| `-d` | Send request body. |
+| `-o` | Write output to file. |
+
+# Examples
+
+```bash
+curl -I https://example.com
+curl -X POST -H "Content-Type: application/json" -d '{"ok":true}' https://api.example.com/health
+```
+
+# Real-world Usage
+
+Validate a health endpoint during deployment and capture response headers.
+
+# Common Mistakes
+
+- Forgetting to quote JSON payloads.
+- Posting secrets in terminal history.
+
+# Performance Notes
+
+Use `--compressed` when testing bandwidth-sensitive endpoints.
+
+# Security Considerations
+
+Avoid logging credentials and use `--fail` to stop on HTTP errors in scripts.
+
+# Related Commands
+
+`wget`, `httpie`, `nc`
+
+# Practice Exercises
+
+1. Send a GET request with a custom header.
+2. Download a file and save it to `/tmp`.

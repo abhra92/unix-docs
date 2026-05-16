@@ -1,0 +1,23 @@
+---
+title: "Scheduling"
+description: "Cron timing patterns and operational safeguards."
+section: "Cron Jobs"
+updated: "2026-05-16"
+tags: ["cron", "scheduling", "automation"]
+---
+
+# Scheduling
+
+Cron executes tasks on fixed schedules. Reliability comes from observability and safe exit behavior.
+
+## Key reminders
+
+- Always set explicit paths.
+- Redirect output to logs.
+- Add lock files to prevent overlaps.
+
+## Example
+
+```bash
+0 3 * * * /usr/local/bin/rotate-logs >> /var/log/rotate.log 2>&1
+```

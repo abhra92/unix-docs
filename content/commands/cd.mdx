@@ -1,0 +1,62 @@
+---
+title: "cd"
+description: "Change directories safely and predictably."
+section: "Navigation"
+updated: "2026-05-16"
+tags: ["navigation", "filesystem"]
+---
+
+# Overview
+
+`cd` changes the current working directory. It affects where relative paths resolve.
+
+# Syntax
+
+```bash
+cd [directory]
+```
+
+# Arguments
+
+- `directory`: Target directory. Defaults to `$HOME`.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-` | Switch to previous directory. |
+| `~` | Shortcut to home directory. |
+
+# Examples
+
+```bash
+cd /var/log
+cd -
+cd ~/projects
+```
+
+# Real-world Usage
+
+Use `cd -` to bounce between two working directories during incident response.
+
+# Common Mistakes
+
+- Using relative paths in scripts where absolute paths are safer.
+- Assuming `cd` succeeds without checking `$?`.
+
+# Performance Notes
+
+`cd` is instantaneous, but excessive directory changes in scripts can reduce readability.
+
+# Security Considerations
+
+Avoid running scripts that rely on implicit working directories; set them explicitly.
+
+# Related Commands
+
+`pwd`, `ls`, `pushd`, `popd`
+
+# Practice Exercises
+
+1. Switch to `/etc`, then back to your previous directory.
+2. Script a sequence that enters a directory and verifies it exists before continuing.

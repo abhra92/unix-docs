@@ -1,0 +1,65 @@
+---
+title: "grep"
+description: "Search text streams using patterns and regular expressions."
+section: "Text"
+updated: "2026-05-16"
+tags: ["grep", "text", "regex"]
+---
+
+# Overview
+
+`grep` filters text by matching patterns. It is foundational for troubleshooting logs and processing data.
+
+# Syntax
+
+```bash
+grep [options] pattern [file...]
+```
+
+# Arguments
+
+- `pattern`: The search expression.
+- `file`: Optional files; defaults to stdin.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-i` | Case-insensitive match. |
+| `-r` | Recursive search. |
+| `-n` | Show line numbers. |
+| `-E` | Use extended regex. |
+| `-v` | Invert match. |
+
+# Examples
+
+```bash
+grep -i "error" /var/log/syslog
+journalctl -u nginx | grep -E " 4| 5"
+```
+
+# Real-world Usage
+
+Filter application logs for slow requests during incident triage.
+
+# Common Mistakes
+
+- Using `grep -r` at filesystem root.
+- Forgetting to quote regex patterns containing spaces.
+
+# Performance Notes
+
+Use `grep -F` for literal strings to improve speed.
+
+# Security Considerations
+
+Be careful when grepping sensitive files; avoid leaking data into logs.
+
+# Related Commands
+
+`rg`, `awk`, `sed`
+
+# Practice Exercises
+
+1. Find all lines containing "timeout" in `/var/log`.
+2. Search case-insensitively for "auth" in a log file.

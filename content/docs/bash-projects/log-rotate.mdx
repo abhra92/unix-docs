@@ -1,0 +1,25 @@
+---
+title: "Log Rotation Script"
+description: "A production-minded Bash project with safety checks."
+section: "Bash Projects"
+updated: "2026-05-16"
+tags: ["bash", "projects", "logs"]
+---
+
+# Log rotation script
+
+This project demonstrates safe file rotation with archive validation and retention policies.
+
+## Design goals
+
+- Never delete a log without confirming archive creation.
+- Keep a predictable archive naming scheme.
+- Write progress logs for audit trails.
+
+## Example structure
+
+```bash
+/opt/tools/rotate-logs
+/opt/tools/rotate-logs/rotate.sh
+/opt/tools/rotate-logs/config.env
+```

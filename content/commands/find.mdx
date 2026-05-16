@@ -1,0 +1,65 @@
+---
+title: "find"
+description: "Search filesystems with precise filters and actions."
+section: "Filesystem"
+updated: "2026-05-16"
+tags: ["find", "filesystem", "automation"]
+---
+
+# Overview
+
+`find` traverses directory trees and can execute actions for matches.
+
+# Syntax
+
+```bash
+find [path...] [expression]
+```
+
+# Arguments
+
+- `path`: Root path(s) to search.
+- `expression`: Filters and actions.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-name` | Match file name pattern. |
+| `-type` | Match file type (`f`, `d`). |
+| `-mtime` | Match by modified time. |
+| `-size` | Match by size. |
+| `-exec` | Run a command on matches. |
+
+# Examples
+
+```bash
+find /var/log -type f -mtime -2
+find /srv/app -type f -name "*.log" -exec gzip {} \;
+```
+
+# Real-world Usage
+
+Locate stale logs for cleanup without manual traversal.
+
+# Common Mistakes
+
+- Running unbounded searches from `/`.
+- Forgetting to quote glob patterns.
+
+# Performance Notes
+
+Use `-maxdepth` and `-mindepth` to constrain searches on large filesystems.
+
+# Security Considerations
+
+Be cautious with `-exec` on untrusted paths; confirm targets before deleting.
+
+# Related Commands
+
+`locate`, `xargs`, `stat`
+
+# Practice Exercises
+
+1. Find all files larger than 100 MB under `/var`.
+2. List directories modified in the last 24 hours.

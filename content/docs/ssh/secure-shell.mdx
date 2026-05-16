@@ -1,0 +1,24 @@
+---
+title: "Secure Shell"
+description: "Authentication, key management, and safe SSH workflows."
+section: "SSH"
+updated: "2026-05-16"
+tags: ["ssh", "security", "keys"]
+---
+
+# Secure Shell
+
+SSH provides secure remote access and is foundational to Unix administration.
+
+## Key practices
+
+- Use key-based authentication.
+- Set `PermitRootLogin no`.
+- Rotate keys and audit authorized keys.
+
+## Common workflow
+
+```bash
+ssh -i ~/.ssh/ops_ed25519 user@server
+ssh-keygen -t ed25519 -C "ops@unix-docs"
+```

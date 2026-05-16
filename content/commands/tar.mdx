@@ -1,0 +1,65 @@
+---
+title: "tar"
+description: "Archive and extract file trees reliably."
+section: "Filesystem"
+updated: "2026-05-16"
+tags: ["tar", "archives", "backup"]
+---
+
+# Overview
+
+`tar` packages files into archives and extracts them when needed.
+
+# Syntax
+
+```bash
+tar [options] -f archive.tar [files...]
+```
+
+# Arguments
+
+- `archive.tar`: Target archive file.
+- `files`: Paths to include or extract.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-c` | Create archive. |
+| `-x` | Extract archive. |
+| `-v` | Verbose output. |
+| `-z` | gzip compression. |
+| `-C` | Change directory before action. |
+
+# Examples
+
+```bash
+tar -czf backup.tar.gz /srv/app
+tar -xzf backup.tar.gz -C /restore
+```
+
+# Real-world Usage
+
+Bundle release artifacts before shipping to a remote host.
+
+# Common Mistakes
+
+- Forgetting `-f` which names the archive.
+- Extracting archives in the wrong directory.
+
+# Performance Notes
+
+Compression is CPU-heavy. For speed, use `-z` only when required.
+
+# Security Considerations
+
+Inspect archives before extraction to avoid path traversal issues.
+
+# Related Commands
+
+`gzip`, `rsync`, `cpio`
+
+# Practice Exercises
+
+1. Create a compressed archive of `/etc`.
+2. Extract an archive into `/tmp/restore`.

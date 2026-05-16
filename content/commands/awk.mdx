@@ -1,0 +1,63 @@
+---
+title: "awk"
+description: "Stream processor for field extraction and formatting."
+section: "Text"
+updated: "2026-05-16"
+tags: ["awk", "text", "scripting"]
+---
+
+# Overview
+
+`awk` is a pattern scanning and processing language designed for structured text.
+
+# Syntax
+
+```bash
+awk [options] 'pattern { action }' file...
+```
+
+# Arguments
+
+- `pattern`: Condition for matching.
+- `action`: Command to run for each match.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-F` | Field separator. |
+| `-v` | Define variables. |
+| `-f` | Load program from file. |
+
+# Examples
+
+```bash
+awk -F":" '{print $1}' /etc/passwd
+awk '{sum += $5} END {print sum}' access.log
+```
+
+# Real-world Usage
+
+Extract unique IPs from logs and calculate request volume.
+
+# Common Mistakes
+
+- Forgetting to set the field separator.
+- Using `awk` where `cut` or `grep` is sufficient.
+
+# Performance Notes
+
+`awk` is fast on large streams, but avoid complex regex when possible.
+
+# Security Considerations
+
+Do not execute untrusted `awk` scripts downloaded from unknown sources.
+
+# Related Commands
+
+`grep`, `sed`, `cut`
+
+# Practice Exercises
+
+1. Print the first and fifth columns from a CSV file.
+2. Count total bytes from a log file with a size column.

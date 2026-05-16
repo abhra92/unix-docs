@@ -1,0 +1,25 @@
+---
+title: "Ownership and Modes"
+description: "Read, write, execute, and the operational meaning of each."
+section: "Permissions"
+updated: "2026-05-16"
+tags: ["permissions", "chmod", "chown"]
+---
+
+# Ownership and modes
+
+Unix permissions are a three-part model: user, group, and others. Each part can read, write, or execute.
+
+## Mode basics
+
+- `r` = read
+- `w` = write
+- `x` = execute
+
+A file with mode `-rw-r-----` means the owner can read/write, the group can read, and others have no access.
+
+## Operational guidance
+
+- Grant minimal access and build upward.
+- Use groups to model team access.
+- Track setuid/setgid changes explicitly.

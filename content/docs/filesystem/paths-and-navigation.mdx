@@ -1,0 +1,22 @@
+---
+title: "Paths and Navigation"
+description: "Absolute vs relative paths, traversal, and safe navigation."
+section: "Filesystem"
+updated: "2026-05-16"
+tags: ["filesystem", "paths", "navigation"]
+---
+
+# Paths and navigation
+
+The Unix filesystem is a tree rooted at `/`. Navigation is a combination of path awareness and safe movement.
+
+## Absolute vs relative
+
+- **Absolute**: Starts at `/` (example: `/var/log`).
+- **Relative**: Starts from your current directory (example: `../logs`).
+
+## Recommended practices
+
+- Use `pwd` often to confirm context.
+- Prefer absolute paths in scripts.
+- Avoid `cd` chains in production scripts; use explicit paths.

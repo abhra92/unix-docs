@@ -1,0 +1,63 @@
+---
+title: "chmod"
+description: "Modify file permissions using symbolic or numeric modes."
+section: "Permissions"
+updated: "2026-05-16"
+tags: ["permissions", "filesystem", "security"]
+---
+
+# Overview
+
+`chmod` changes file modes. Use it to grant or remove read, write, and execute permissions.
+
+# Syntax
+
+```bash
+chmod [options] mode file...
+```
+
+# Arguments
+
+- `mode`: Symbolic (`u+rw`) or numeric (`640`) permissions.
+- `file`: One or more targets.
+
+# Options Table
+
+| Option | Description |
+| --- | --- |
+| `-R` | Recurse into directories. |
+| `-v` | Verbose output. |
+| `--reference` | Copy permissions from another file. |
+
+# Examples
+
+```bash
+chmod 640 app.log
+chmod -R u=rwX,g=rX,o= /srv/app
+```
+
+# Real-world Usage
+
+Set logs to read-only for developers while keeping write access for operators.
+
+# Common Mistakes
+
+- Using `chmod -R` without verifying the directory scope.
+- Setting execute bits on data files.
+
+# Performance Notes
+
+Recursive operations can be slow on large trees. Use targeted paths.
+
+# Security Considerations
+
+Avoid world-writable permissions on production systems.
+
+# Related Commands
+
+`chown`, `umask`, `stat`
+
+# Practice Exercises
+
+1. Set a directory to `750` and explain who can access it.
+2. Copy permissions from one file to another using `--reference`.

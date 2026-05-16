@@ -1,0 +1,31 @@
+---
+title: "Core Commands Cheatsheet"
+description: "High-signal command snippets for daily operations."
+section: "Cheatsheets"
+updated: "2026-05-16"
+tags: ["cheatsheet", "commands"]
+---
+
+# Core commands cheatsheet
+
+## Files and directories
+
+```bash
+ls -la
+cp -av source/ target/
+rsync -avz --delete source/ target/
+```
+
+## Processes
+
+```bash
+ps aux | sort -nrk 3 | head -n 5
+kill -TERM <pid>
+```
+
+## Networking
+
+```bash
+ss -tulpen
+curl -I https://example.com
+```

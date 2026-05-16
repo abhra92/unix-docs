@@ -1,0 +1,24 @@
+---
+title: "Process Lifecycle"
+description: "From fork to exit: how processes behave and how to observe them."
+section: "Processes"
+updated: "2026-05-16"
+tags: ["processes", "ps", "signals"]
+---
+
+# Process lifecycle
+
+Processes are running instances of programs. They have IDs, ownership, and resource usage.
+
+## Key states
+
+- **Running**: Currently executing on CPU.
+- **Sleeping**: Waiting for I/O or timing.
+- **Stopped**: Paused by signals.
+- **Zombie**: Exited but not reaped by parent.
+
+## Practical workflow
+
+- Inspect with `ps` and `top`.
+- Use `kill` for signals, not just termination.
+- Log long-running jobs with explicit PID files.
